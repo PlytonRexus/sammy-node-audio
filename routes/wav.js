@@ -5,6 +5,7 @@ const chalk = require ('chalk');
 const multer = require ('multer');
 
 const wav = require ('../controllers/wav');
+const wtools = require ('../utils/wtools');
 
 const fileFilter = function fileFilter (req, file, callback)
 {
@@ -35,11 +36,12 @@ const upload = multer({
 	fileFilter, 
 	storage
 });
+
 const router = express.Router();
 
 router.get("/", wav.getPage);
 
-router.post("/", upload.single("audio"), wav.ua, wav.uploadErrors); 
+router.post("/", upload.single("audio"), wtools.reqTimeout, wav.ua, wav.uploadErrors); 
 // consider adding a "saving" middleware
 // this can be reused in both wav and vid controllers
 // also can be considered addition of "file validation/sanitisation" middleware

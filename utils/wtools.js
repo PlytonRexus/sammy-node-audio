@@ -85,3 +85,8 @@ exports.fetchVideo = function (url) {
         });
     }
 }
+
+exports.reqTimeout = function (req, res, next) {
+    req.setTimeout(5 * 60 * 1000);
+    next();
+}

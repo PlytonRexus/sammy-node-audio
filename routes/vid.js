@@ -5,6 +5,7 @@ const chalk = require ('chalk');
 const multer = require ('multer');
 
 const vid = require ('../controllers/vid');
+const wtools = require ('../utils/wtools');
 
 const router = express.Router();
 const fileFilter = function fileFilter (req, file, callback)
@@ -38,8 +39,8 @@ const upload = multer({
 	storage
 });
 
-router.post("/", upload.single("video"), vid.getByUpload, vid.uploadErrors);
+router.post("/", upload.single("video"), wtools.reqTimeout, vid.getByUpload, vid.uploadErrors);
 
-router.get("/", vid.getByUrl);
+router.get("/", wtools.reqTimeout, vid.getByUrl);
 
 module.exports = router;

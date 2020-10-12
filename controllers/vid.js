@@ -26,6 +26,12 @@ exports.getByUrl = async function(req, res) {
 				console.log("Audio extracted.", wavAddr);
 			let wordsInWav = await atools.Ds_Wrap(null, null, wavAddr);
 
+			wordsInWav.words = wordsInWav.words.map(obj => {
+				let rep = obj;
+				rep.time = Math.round(obj.time * 1000);
+				return rep;
+			});
+
 			if (process.env.DEBUG_SAM && process.env.VERBOSE_SAM) 
 				console.log("Final response of getByUrl route:", wordsInWav);
 			res.json(wordsInWav);
@@ -68,6 +74,12 @@ exports.getByUpload = async (req, res, next) => {
 		if (process.env.DEBUG_SAM) 
 			console.log("Audio extracted.", wavAddr);
 		let wordsInWav = await atools.Ds_Wrap(null, null, wavAddr);
+
+		wordsInWav.words = wordsInWav.words.map(obj => {
+			let rep = obj;
+			rep.time = Math.round(obj.time * 1000);
+			return rep;
+		});
 
 		if (process.env.DEBUG_SAM && process.env.VERBOSE_SAM) 
 			console.log("Final response for getByUpload route:", wordsInWav); 
