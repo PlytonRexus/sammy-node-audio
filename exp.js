@@ -1,7 +1,7 @@
 const express = require ('express');
 const multer = require ('multer');
 
-// const wav = require ('./routes/wav');
+const wav = require ('./routes/wav');
 const vid = require ('./routes/vid');
 const home = require ('./routes/home');
 const errors = require ('./routes/errors');

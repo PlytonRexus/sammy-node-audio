@@ -16,7 +16,7 @@ let scorerPath =
 let scorerExists = false;
 
 try {
-    if (fs.existsSync(scorerPath)) {
+    if (Fs.existsSync(scorerPath)) {
         scorerExists = true;
     }
 } catch(err) {
