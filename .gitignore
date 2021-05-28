@@ -1,0 +1,9 @@
+pulseaudio.txt
+node_modules
+binaries/samples
+binaries/scorers/*.scorer
+binaries/models/*.pbmm
+*.env
+binaries/audios/*.wav
+*.rdb
+uploads/tmp/*.mp4
