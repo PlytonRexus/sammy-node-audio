@@ -1,0 +1,15 @@
+[Unit]
+Description=Sammy Audio
+
+[Service]
+ExecStart=cd /home/pallavi/sammy-audio && npm start
+Restart=always
+User=nobody
+# Note Debian/Ubuntu uses 'nogroup', RHEL/Fedora uses 'nobody'
+Group=nogroup
+Environment=PATH=/usr/bin:/usr/local/bin
+Environment=NODE_ENV=production
+WorkingDirectory=/home/pallavi/sammy-audio
+
+[Install]
+WantedBy=multi-user.target
