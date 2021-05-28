@@ -2,7 +2,7 @@
 Description=Sammy Audio
 
 [Service]
-ExecStart=cd /home/pallavi/sammy-audio && npm start
+ExecStart=/home/pallavi/sammy-audio/ci/deploy.sh
 Restart=always
 User=nobody
 # Note Debian/Ubuntu uses 'nogroup', RHEL/Fedora uses 'nobody'
